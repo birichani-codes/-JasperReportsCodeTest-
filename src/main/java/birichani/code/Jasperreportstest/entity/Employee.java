@@ -14,22 +14,28 @@ import jakarta.persistence.Id;
 @Entity
 public class Employee {
     @Id
-    private int id; // Keep Employee ID
+    private int id; // Employee ID
 
-    private String name; // Change to Employee Name
+    private String name; // Employee Name
 
-    private String department; // Change to Department
+    private String department; // Department
 
-    private double salary; // Keep Salary
+    private double salary; // Salary
 
-    private String hireDate; // Change to Hire Date
+    private String hireDate; // Hire Date
 
-    public Employee(int id, String name, String department, double salary, String hireDate) {
+    private String address; // Address of the Employee
+
+    private String contact_info; // Contact Information of the Employee
+
+    public Employee(int id, String name, String department, double salary, String hireDate, String address, String contact_info) {
         this.id = id;
         this.name = name;
         this.department = department;
         this.salary = salary;
         this.hireDate = hireDate;
+        this.address = address;
+        this.contact_info = contact_info;
     }
 
     public Employee() {
@@ -75,6 +81,22 @@ public class Employee {
         this.hireDate = hireDate;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getContact_info() {
+        return contact_info;
+    }
+
+    public void setContactInfo(String contact_info) {
+        this.contact_info = contact_info;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -83,6 +105,8 @@ public class Employee {
                 ", department='" + department + '\'' +
                 ", salary=" + salary +
                 ", hireDate='" + hireDate + '\'' +
+                ", address='" + address + '\'' +
+                ", contactInfo='" + contact_info + '\'' +
                 '}';
     }
 }

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="EmployeeDetailsSubreport"
+              pageWidth="200"
+              pageHeight="100"
+              columnWidth="180"
+              leftMargin="10"
+              rightMargin="10"
+              topMargin="10"
+              bottomMargin="10"
+              uuid="ea9d9eab-78ea-4cb9-adce-7588ae6a483e">
+
+    <!-- Define parameters if needed -->
+    <parameter name="Address" class="java.lang.String"/>
+    <parameter name="ContactInfo" class="java.lang.String"/>
+
+    <!-- Detail band -->
+    <detail>
+        <band height="30" splitType="Stretch">
+            <textField>
+                <reportElement x="0" y="0" width="180" height="15"/>
+                <textElement/>
+                <!-- Assuming 'address' is correctly passed and exists in the data source -->
+                <textFieldExpression><![CDATA["Address: " + $P{Address}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="15" width="180" height="15"/>
+                <textElement/>
+                <!-- Adjusted to refer to 'contact_info' instead of 'contactInfo' -->
+                <textFieldExpression><![CDATA["Contact Info: " + $P{ContactInfo}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

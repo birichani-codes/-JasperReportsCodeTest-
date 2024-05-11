@@ -34,14 +34,14 @@ public class ReportService {
         File mainReportFile = ResourceUtils.getFile("classpath:employees.jrxml");
         JasperReport mainJasperReport = JasperCompileManager.compileReport(mainReportFile.getAbsolutePath());
 
-     /*   // Load subreport file and compile it
+      // Load subreport file and compile it
         File subReportFile = ResourceUtils.getFile("classpath:EmployeeDetailsSubreport.jrxml");
-      *//*  JasperReport subJasperReport = JasperCompileManager.compileReport(subReportFile.getAbsolutePath());*/
+        JasperReport subJasperReport = JasperCompileManager.compileReport(subReportFile.getAbsolutePath());
 
         JRBeanCollectionDataSource mainDataSource = new JRBeanCollectionDataSource(employees);
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("CreatedBy", "birichani");
-        /*parameters.put("SubreportParameter", subJasperReport);*/
+        parameters.put("SubreportParameter", subJasperReport);
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(mainJasperReport, parameters, mainDataSource);
 
