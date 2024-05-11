@@ -113,7 +113,8 @@ AND salary BETWEEN $P{SalaryMin} AND $P{SalaryMax}
     </columnHeader>
 
     <detail>
-        <band height="40" splitType="Stretch">
+        <band height="60" splitType="Stretch">
+
             <textField>
                 <reportElement x="0" y="0" width="60" height="20" uuid="e1a2b3c4-d5f6-7890-a1b2-c3d4e5f67890"/>
                 <textElement textAlignment="Center">
@@ -163,6 +164,14 @@ AND salary BETWEEN $P{SalaryMin} AND $P{SalaryMax}
                 <subreportExpression><![CDATA["EmployeeDetailsSubreport.jrxml"]]></subreportExpression>
             </subreport>
 
+            <!-- New field for displaying bonus -->
+            <textField>
+                <reportElement x="480" y="0" width="100" height="20" uuid="new-uuid-for-bonus"/>
+                <textElement textAlignment="Center">
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Bonus: $" + calculateBonus($F{salary})]]></textFieldExpression>
+            </textField>
         </band>
     </detail>
 
