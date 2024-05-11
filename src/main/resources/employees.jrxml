@@ -11,6 +11,18 @@
               topMargin="20"
               bottomMargin="20"
               uuid="ea9d9eab-78ea-4cb9-adce-7588ae6a483e">
+    <parameter name="Department" class="java.lang.String"/>
+    <parameter name="SalaryMin" class="java.lang.Double"/>
+    <parameter name="SalaryMax" class="java.lang.Double"/>
+
+    <queryString>
+        <![CDATA[
+SELECT id, name, department, salary, hireDate
+FROM employee
+WHERE department = $P{Department}
+AND salary BETWEEN $P{SalaryMin} AND $P{SalaryMax}
+]]>
+    </queryString>
 
     <field name="id" class="java.lang.Integer"/>
     <field name="name" class="java.lang.String"/>
